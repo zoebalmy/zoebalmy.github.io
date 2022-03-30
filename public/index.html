@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+    <meta name="robots" content="noindex" />
+
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"
+    ></script>
+    <script>
+      // Look for service worker that needs to be unregistered to fix caching issue
+      if (navigator.serviceWorker) {
+        console.log('Searching for service worker...');
+        navigator.serviceWorker
+          .getRegistrations()
+          .then((registrations) => {
+            for (let registration of registrations) {
+              console.log('Service worker found, attempting unregistration...');
+              registration.unregister();
+            }
+          })
+          .catch((error) => {
+            console.log(
+              'Unable to unregister service worker. Failed with error:',
+              error
+            );
+          });
+      }
+    </script>
+    <title>acmeCRM</title>
+  </head>
+  <body>
+    <noscript> You need to enable JavaScript to run this app. </noscript>
+    <div id="exit-intent"></div>
+    <div id="root"></div>
+  </body>
+</html>
