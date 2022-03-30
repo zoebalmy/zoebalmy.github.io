@@ -1,7 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Input, Button, Modal, Form, Select, Avatar, Popover } from 'antd';
+import {
+  Input,
+  Button,
+  Modal,
+  Form,
+  Select,
+  Avatar,
+  Popover,
+  Icon,
+} from 'antd';
 import { withRouter } from 'react-router-dom';
+import { requestOpportunitiesData } from '../../actions/opportunitiesActions';
 
 import './vertical-menu.scss';
 
@@ -19,6 +29,38 @@ const fieldThreeList = {
   Contacts: 'Phone #: ',
   Opportunities: 'ARR: ',
 };
+
+const userProfileContent = (
+  // <div>
+  //   <span>Visitor: &#9;&#9;</span>
+  //   <span style={{ float: 'right' }}>{window.userInfo.visitor}</span>
+  //   <br></br>
+  //   <span>Account: &#9;&#9;</span>
+  //   <span style={{ float: 'right' }}>{window.userInfo.account}</span>
+  //   <br></br>
+  //   <span>Role: &#9;&#9;</span>
+  //   <span style={{ float: 'right' }}>{window.userInfo.role}</span>
+  // </div>
+  <table className="user-info-table">
+    <tbody>
+      <tr>
+        <td>Visitor:</td>
+        <td style={{ width: '10px' }}></td>
+        <td>{window.userInfo.visitor}</td>
+      </tr>
+      <tr>
+        <td>Account:</td>
+        <td style={{ width: '10px' }}></td>
+        <td>{window.userInfo.account}</td>
+      </tr>
+      <tr>
+        <td>Role:</td>
+        <td style={{ width: '10px' }}></td>
+        <td>{window.userInfo.role}</td>
+      </tr>
+    </tbody>
+  </table>
+);
 
 const ShowHeader = function (props) {
   if (props.title === 'Mobile') {
@@ -132,6 +174,9 @@ class Body extends React.Component {
     return (
       <>
         <div className="vertical-menu vertical-menu-top">
+          {/* <div className="vertical-menu-item left title-container">
+          <ShowHeader title={this.props.title} />
+          </div> */}
           <div className="vertical-menu-item left search-container">
             <Search
               name="search"
@@ -144,34 +189,7 @@ class Body extends React.Component {
             <Popover
               placement="bottomRight"
               title="Profile"
-              content={
-                <table className="user-info-table">
-                  <tbody>
-                    <tr>
-                      <td>Visitor:</td>
-                      <td style={{ width: '10px' }}></td>
-                      <td>
-                        {this.props?.visInfo?.visitor?.id?.includes('@')
-                          ? this.props?.visInfo?.visitor?.id?.slice(
-                              0,
-                              this.props?.visInfo?.visitor?.id?.indexOf('@')
-                            )
-                          : this.props?.visInfo?.visitor?.id}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Account:</td>
-                      <td style={{ width: '10px' }}></td>
-                      <td>{this.props?.visInfo?.account?.id}</td>
-                    </tr>
-                    <tr>
-                      <td>Role:</td>
-                      <td style={{ width: '10px' }}></td>
-                      <td>{this.props?.visInfo?.visitor?.role}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              }
+              content={userProfileContent}
               className="user-profile"
               trigger="click"
             >
@@ -179,7 +197,7 @@ class Body extends React.Component {
             </Popover>
           </div>
           <div className="vertical-menu-item right user-info-container">
-            <span>{this.props?.visInfo?.visitor?.id}</span>
+            <span>{window.userInfo.visitorId}</span>
           </div>
           <div className="vertical-menu-item right divider-container">
             <div className="vertical-menu-divider"></div>
@@ -193,13 +211,14 @@ class Body extends React.Component {
             >
               <img
                 className="help-icon"
-                src={`${window.location.origin}/images/help-icon.svg`}
+                src={'./images/help-icon.svg'}
                 alt="help-icon"
               ></img>
             </a>
           </div>
         </div>
         <div className="vertical-menu vertical-menu-bottom">
+          {/* <span className="button-span">SOME TEXT</span> */}
           <div className="vertical-menu-item left title-container">
             <ShowHeader title={this.props.title} />
           </div>
@@ -281,7 +300,6 @@ export default withRouter(Body);
 Body.propTypes = {
   title: PropTypes.string,
   history: PropTypes.object,
-  visInfo: PropTypes.object,
 };
 
 ShowHeader.propTypes = {
