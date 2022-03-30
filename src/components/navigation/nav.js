@@ -20,7 +20,6 @@ const Navigation = ({ onNavClick }) => (
         src={`${window.location.origin}/images/pizza-logo.png`}
         alt="logo"
         id="pizza-logo"
-        style="width: 70px; padding: 20px 10px;"
       />
       <span className="logo-text">
         <strong>pizza</strong>CRM
