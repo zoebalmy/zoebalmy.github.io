@@ -169,31 +169,6 @@ class Body extends React.Component {
                       <td style={{ width: '10px' }}></td>
                       <td>{this.props?.visInfo?.visitor?.role}</td>
                     </tr>
-                    <tr>
-                      <td>Team:</td>
-                      <td style={{ width: '10px' }}></td>
-                      <td>{this.props?.visInfo?.visitor?.team}</td>
-                    </tr>
-                    <tr>
-                      <td>Title:</td>
-                      <td style={{ width: '10px' }}></td>
-                      <td>{this.props?.visInfo?.visitor?.title}</td>
-                    </tr>
-                    <tr>
-                      <td>Region:</td>
-                      <td style={{ width: '10px' }}></td>
-                      <td>{this.props?.visInfo?.visitor?.region}</td>
-                    </tr>
-                    <tr>
-                      <td>Office:</td>
-                      <td style={{ width: '10px' }}></td>
-                      <td>{this.props?.visInfo?.visitor?.office}</td>
-                    </tr>
-                    <tr>
-                      <td>System:</td>
-                      <td style={{ width: '10px' }}></td>
-                      <td>{this.props?.visInfo?.visitor?.system}</td>
-                    </tr>
                   </tbody>
                 </table>
               }
