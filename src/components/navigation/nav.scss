@@ -1,0 +1,62 @@
+@import '../../variables.module';
+
+// Left nav bar
+.nav-bar {
+  width: 240px;
+  height: 100%;
+  position: fixed;
+  overflow-x: hidden;
+  background-color: $primary-color-dark;
+
+  // Shadow
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+}
+
+// Logo container
+.logo {
+  width: 100%;
+  text-align: center;
+}
+
+// Logo image
+#cloud-logo {
+  width: 50px;
+  margin-top: 20px;
+  margin-right: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+// Logo text
+.logo .logo-text {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 20px;
+  color: $text-color-light;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.1em;
+}
+
+.logo .logo-text strong {
+  font-weight: 800;
+}
+
+// Nav menu
+#main-menu {
+  background-color: $primary-color-dark;
+  margin-top: 40px;
+}
+
+// Nav menu items
+#main-menu .ant-menu-item {
+  width: 100%;
+}
+
+// Nav menu item text
+#main-menu .ant-menu-item .nav-text {
+  font-size: 16px;
+  letter-spacing: 0.06em;
+}
