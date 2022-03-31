@@ -10,16 +10,15 @@ In order to get the project up and running you will need:
 To clone the app:
 
 ```
-git clone https://github.com/pendo-io/pe-acme-crm.git
+git clone https://github.com/pendo-sandbox/pendo-sandbox.github.io
 ```
 
 Installation:
 
 ```
-cd ./pendo-demosite
+cd ./pendo-sandbox.github.io
 nvm use 16.13.0
 yarn install
-npm install
 ```
 
 Then to run locally at [http://localhost:3000/](http://localhost:3000/):
